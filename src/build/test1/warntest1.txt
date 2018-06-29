@@ -1,0 +1,32 @@
+missing module named resource - imported by posix, C:\Users\MIkhail\eclipse-workspace\testSample\src\test1.py
+missing module named posix - imported by os, C:\Users\MIkhail\eclipse-workspace\testSample\src\test1.py
+missing module named _posixsubprocess - imported by subprocess, C:\Users\MIkhail\eclipse-workspace\testSample\src\test1.py
+missing module named 'org.python' - imported by pickle, xml.sax, C:\Users\MIkhail\eclipse-workspace\testSample\src\test1.py
+missing module named readline - imported by cmd, code, pdb, C:\Users\MIkhail\eclipse-workspace\testSample\src\test1.py
+excluded module named _frozen_importlib - imported by importlib, importlib.abc, C:\Users\MIkhail\eclipse-workspace\testSample\src\test1.py
+missing module named _frozen_importlib_external - imported by importlib._bootstrap, importlib, importlib.abc, C:\Users\MIkhail\eclipse-workspace\testSample\src\test1.py
+missing module named _winreg - imported by platform, selenium.webdriver.firefox.firefox_binary, C:\Users\MIkhail\eclipse-workspace\testSample\src\test1.py
+missing module named _scproxy - imported by urllib.request
+missing module named java - imported by platform, C:\Users\MIkhail\eclipse-workspace\testSample\src\test1.py
+missing module named 'java.lang' - imported by platform, xml.sax._exceptions, C:\Users\MIkhail\eclipse-workspace\testSample\src\test1.py
+missing module named vms_lib - imported by platform, C:\Users\MIkhail\eclipse-workspace\testSample\src\test1.py
+missing module named termios - imported by tty, getpass, C:\Users\MIkhail\eclipse-workspace\testSample\src\test1.py
+missing module named grp - imported by shutil, tarfile, C:\Users\MIkhail\eclipse-workspace\testSample\src\test1.py
+missing module named org - imported by copy, C:\Users\MIkhail\eclipse-workspace\testSample\src\test1.py
+missing module named pwd - imported by posixpath, shutil, tarfile, http.server, webbrowser, netrc, getpass, C:\Users\MIkhail\eclipse-workspace\testSample\src\test1.py
+missing module named _dummy_threading - imported by dummy_threading, C:\Users\MIkhail\eclipse-workspace\testSample\src\test1.py
+missing module named httplib - imported by selenium.webdriver.firefox.webdriver, selenium.webdriver.remote.remote_connection, selenium.webdriver.safari.webdriver, selenium.webdriver.blackberry.webdriver, selenium.webdriver.webkitgtk.webdriver, mysql.connector.fabric.connection
+missing module named urllib2 - imported by selenium.webdriver.common.utils, selenium.webdriver.remote.remote_connection, selenium.webdriver.common.service, mysql.connector.fabric.connection
+missing module named xmlrpclib - imported by mysql.connector.fabric.connection
+missing module named Queue - imported by mysql.connector.pooling
+missing module named ConfigParser - imported by mysql.connector.optionfiles
+missing module named _mysql_connector - imported by mysql.connector, mysql.connector.connection_cext, mysql.connector.cursor_cext
+missing module named StringIO - imported by selenium.webdriver.remote.webelement
+missing module named iconv_codec - imported by bs4.dammit
+missing module named cchardet - imported by bs4.dammit
+missing module named 'html5lib.treebuilders' - imported by bs4.builder._html5lib
+missing module named 'html5lib.constants' - imported by bs4.builder._html5lib
+missing module named html5lib - imported by bs4.builder._html5lib
+missing module named urlparse - imported by selenium.webdriver.remote.remote_connection
+missing module named cStringIO - imported by selenium.webdriver.firefox.firefox_profile
+missing module named copy_reg - imported by cStringIO
