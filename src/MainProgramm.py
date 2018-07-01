@@ -29,6 +29,9 @@ import os
 import requests , urlopen
 from urllib.request import URLError
 from urllib import request
+import progressbar
+from time import sleep
+import sys
 
 
 class MyHTMLParser(HTMLParser):
@@ -58,6 +61,8 @@ def strip_tags(html):
     s = MLStripper()
     s.feed(html)
     return s.get_data()
+
+
 
 
    
@@ -143,8 +148,15 @@ i = 1
 #driver.get_screenshot_as_file("test03_1_"+str(i)+".jpg")
 
 while True:
-    driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+    g =  driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
     time.sleep(pause)
+    
+    
+    #i = 1
+    print("Looding....")
+
+# Initial call to print 0% progress
+    
    
     try:
         newHeight = driver.execute_script("return document.body.scrollHeight")
@@ -169,7 +181,7 @@ for link in soup.findAll('a', {'class': '_60rg _8o _8r lfloat _ohe'}):
     z = g.replace('"','')
 #print(g)
     h = z.replace("'", "")
-    print(h)
+    #print(h)
     
     
     table_name = "test"
@@ -184,7 +196,7 @@ for link in soup.findAll('a', {'class': '_60rg _8o _8r lfloat _ohe'}):
     newquery ="INSERT IGNORE INTO  table333(id,extracted) VALUES("+str(i)+",'"+h+"')"
     cursor.execute(newquery,createsqltable)
     
-    conn.commit()
+    #conn.commit()
     i = i + 1
 
 soup_str = str(soup)
