@@ -182,7 +182,7 @@ for link in soup.findAll('a', {'class': '_60rg _8o _8r lfloat _ohe'}):
     #cursor.execute(createsqltable)
     
     newquery ="INSERT IGNORE INTO  table333(id,extracted) VALUES("+str(i)+",'"+h+"')"
-    cursor.execute(newquery,createsqltable,multi=True)
+    cursor.execute(newquery,createsqltable)
     
     conn.commit()
     i = i + 1
