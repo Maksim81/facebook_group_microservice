@@ -32,8 +32,13 @@ from urllib import request
 import progressbar
 from time import sleep
 import sys
+from django.core.validators import URLValidator
+from django.core.exceptions import ValidationError
 
 
+def url_ok(url):
+    r = requests.head(url)
+    return r.status_code == 200
 class MyHTMLParser(HTMLParser):
 
     def handle_starttag(self, tag, attrs):
@@ -89,10 +94,14 @@ print("Set field from where to extract")
 
   
 groupname = input("Enter group name: ")
-try:
-    req = request.Request(groupname)
-except RuntimeError as e:
-    raise
+#try:
+headers = { 'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/32.0.1700.107 Safari/537.36' }
+req = request.Request(groupname)
+
+
+
+#except ValidationError as e:
+    #print(e)
 try:
     response = request.urlopen(req)
 except URLError  as e:
@@ -109,10 +118,27 @@ else:
 print("Set the delay for scroloing")
 try:
   pause = config['pause']['value']
+  print("You scroll delay set to  '"+pause+"'")
   #pause = input("enter value for scrooll delay")
 except ValueError:
     print("You scroll delay set to  '"+pause+"'")
-print("You programm has started")
+print("You programm has started please wait")
+
+table_name = input("Enter group name: ")
+# delete 
+#cursor.execute("""DROP TABLE """+table_name+""";""")
+    #print(h)
+    
+    
+sql_command = """
+CREATE TABLE """+table_name+""" ( 
+`id` int(11) NOT NULL DEFAULT '0',
+`plain_html` longtext,
+`extracted` mediumtext
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;"""
+     
+cursor.execute(sql_command)
+print("Table created")
 
 usr = "mixanovatski13@gmail.com"
 pwd = "devil6007472"
@@ -153,7 +179,7 @@ while True:
     
     
     #i = 1
-    print("Looding....")
+    
 
 # Initial call to print 0% progress
     
@@ -172,6 +198,9 @@ page_source = driver.page_source
 
 driver.close()
 
+
+
+
 soup = BeautifulSoup(page_source,"lxml")
 i = 1
 for link in soup.findAll('a', {'class': '_60rg _8o _8r lfloat _ohe'}):
@@ -181,20 +210,27 @@ for link in soup.findAll('a', {'class': '_60rg _8o _8r lfloat _ohe'}):
     z = g.replace('"','')
 #print(g)
     h = z.replace("'", "")
-    #print(h)
     
     
-    table_name = "test"
-    createsqltable = """DROP TABLE IF EXISTS `table333`;
-    CREATE TABLE IF NOT EXISTS `table333` (
-    `id` int(11) NOT NULL DEFAULT '0',
-    `plain_html` longtext,
-    `extracted` mediumtext
-     ) ENGINE=MyISAM DEFAULT CHARSET=latin1; """
+    
+    sql_command = "INSERT  INTO "+table_name+" (id,extracted) VALUES ("+str(i)+",'"+h+"');"
+    cursor.execute(sql_command)
+    print("Data inserted 1 :" + h)
+    
+    
+    
+    #createsqltable = """"DROP TABLE IF EXISTS '"""+table_name+"""';
+    #CREATE TABLE IF NOT EXISTS '"""+table_name+"""' (
+    #`id` int(11) NOT NULL DEFAULT '0',
+    #`plain_html` longtext,
+    #`extracted` mediumtext
+    # ) ENGINE=MyISAM DEFAULT CHARSET=latin1; """
     #cursor.execute(createsqltable)
+    #print("table created",createsqltable)
     
-    newquery ="INSERT IGNORE INTO  table333(id,extracted) VALUES("+str(i)+",'"+h+"')"
-    cursor.execute(newquery,createsqltable)
+    #newquery ="INSERT IGNORE INTO  "+table_name+"(id,extracted) VALUES("+str(i)+",'"+h+"')"
+    #cursor.execute(createsqltable,newquery)
+   # print("data inserted")
     
     #conn.commit()
     i = i + 1
