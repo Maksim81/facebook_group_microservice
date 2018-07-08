@@ -8,8 +8,8 @@ Getting started:
 2. Put neccessarry configurations (located on config.ini)
 2.1 Set your database information and scroll delay
 3. Enter the correct url for group users
-4  Put the correct table name where to store you users
-5  After you fish oll then the program will start(Wait patiently for it to finish and the you have it, all data is in you mysql database)
+4.  Put the correct table name where to store you users
+5.  After you fish oll then the program will start(Wait patiently for it to finish and the you have it, all data is in you mysql database)
 Have Funn !!!!!!
 This is the version 0.002
 There will be more updates soon
