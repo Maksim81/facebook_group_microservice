@@ -124,18 +124,29 @@ except ValueError:
     print("You scroll delay set to  '"+pause+"'")
 print("You programm has started please wait")
 
-table_name = input("Enter group name: ")
+table_name = 'test_Table'
 # delete 
 #cursor.execute("""DROP TABLE """+table_name+""";""")
     #print(h)
     
     
+#sql_command = """
+#CREATE TABLE """+table_name+""" ( 
+#`id` int(11) NOT NULL DEFAULT '0',
+#`plain_html` longtext,
+#`extracted` mediumtext
+#) ENGINE=MyISAM DEFAULT CHARSET=latin1;"""
+
 sql_command = """
 CREATE TABLE """+table_name+""" ( 
-`id` int(11) NOT NULL DEFAULT '0',
-`plain_html` longtext,
-`extracted` mediumtext
+ `id` int(11) NOT NULL DEFAULT '0',
+  `plain_html` longtext,
+  `extracted` mediumtext,
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;"""
+
+
+ 
      
 cursor.execute(sql_command)
 print("Table created")
@@ -178,9 +189,6 @@ while True:
     time.sleep(pause)
     
     
-    #i = 1
-    
-
 # Initial call to print 0% progress
     
    
