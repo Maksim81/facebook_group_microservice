@@ -124,7 +124,8 @@ except ValueError:
     print("You scroll delay set to  '"+pause+"'")
 print("You programm has started please wait")
 
-table_name = 'test_Table'
+#table_name = 'test_Table'
+table_name = input('Enter group name:')
 # delete 
 #cursor.execute("""DROP TABLE """+table_name+""";""")
     #print(h)
@@ -180,7 +181,7 @@ driver.find_element_by_id('loginbutton').click()
 pause = int(pause)
 wait = WebDriverWait(driver, 100)
 lastHeight = driver.execute_script("return document.body.scrollHeight")
-print(lastHeight)
+#print(lastHeight)
 i = 1
 #driver.get_screenshot_as_file("test03_1_"+str(i)+".jpg")
 

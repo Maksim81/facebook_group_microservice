@@ -233,6 +233,159 @@ try:
         
               
             print("\nI can't wait to meet this person!\n")
+            
+    elif choice == '2':
+        try:
+         groupname = input("Enter group name: ")
+        except SyntaxError:
+            groupname = None
+        
+        #id = is_valid('35701105226')
+        #print(id)
+        
+           #id = is_valid(str(all))
+           #print(id)
+           #print(x)
+           
+           
+            
+           
+           #id = is_valid(int(str(result)))
+           #print(id)
+           
+
+           
+        
+           
+    
+        
+        print("\nI can't wait to meet this person!\n")
+    elif choice == '3':
+        
+        pause = input("set scrool delay: ")
+        #for string in linkfromtable:
+           #soup_string = str(string)
+          # match = re.findall(r'[\w\.-]+@[\w\.-]+', soup_string)
+           #print(match)
+        print("\n+'"+pause+"'\n")
+    elif choice == '4':  
+          #i = 1
+          #for string in linkfromtable:
+             # newquery="UPDATE TABLE4 set extracted = '"+str(result)+"' where id = "+str(i)
+              #cursor.execute(newquery)
+              #conn.commit()
+             # i = i + 1
+             # print() 
+             #conn = mysql.connector.connect(host = "localhost", user="root", passwd="", db="testdb",charset='utf8')
+             #cursor = conn.cursor()
+             #if conn.is_connected():
+                #print("Connected to mysql Database")
+            
+             usr = "mixanovatski13@gmail.com"
+             pwd = "devil6007472"
+            
+             _browser_profile = webdriver.FirefoxProfile()
+             _browser_profile.set_preference("dom.webnotifications.enabled", False)
+            
+             driver = webdriver.Firefox(firefox_profile=_browser_profile)
+            
+             driver.maximize_window()
+             
+             #h = "https://www.facebook.com/groups/364076470395469/members/";
+             
+             driver.get(groupname)
+
+             assert "Facebook" in driver.title
+             elem = driver.find_element_by_id("email")
+             elem.send_keys(usr)
+             elem = driver.find_element_by_id("pass")
+             elem.send_keys(pwd)
+             elem.send_keys(Keys.RETURN)
+             driver.find_element_by_id('loginbutton').click()
+            
+            
+             pause = int(pause)
+             wait = WebDriverWait(driver, 100)
+             lastHeight = driver.execute_script("return document.body.scrollHeight")
+             print(lastHeight)
+             i = 1
+            #driver.get_screenshot_as_file("test03_1_"+str(i)+".jpg")
+            
+             while True:
+                driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+                time.sleep(pause)
+                #page_source1 = driver.page_source
+                #print(page_source1.encode("utf-8"))
+                #print('*****************')
+                #soup = BeautifulSoup(page_source1,"lxml")
+                #for link in soup.findAll('a', {'class': '_60rg _8o _8r lfloat _ohe'}):
+                    #r = link.get('href')
+                    
+                    #print(r)
+                    
+                    #g = r.replace('\n','')
+                    #z = g.replace('"','')
+            #print(g)
+                    #h = z.replace("'", "")
+                    #print(h)
+                    
+                    #newquery ="INSERT INTO  testdb.table555(id,extracted) VALUES("+str(i)+",'"+h+"')"
+                    #cursor.execute(newquery)
+                
+                    #conn.commit()
+                    #i = i + 1
+                #insert into mysql data from last scroll 
+                #create executed file 
+                #create new table for each group 
+                #driver.close()
+                newHeight = driver.execute_script("return document.body.scrollHeight")
+                ##print(newHeight)
+                if newHeight == lastHeight:
+                    break
+                lastHeight = newHeight
+                i += 1
+                #driver.get_screenshot_as_file("test03_1_"+str(i)+".jpg")
+             page_source = driver.page_source
+            
+             driver.close()
+            #_60ri fsl fwb fcb
+            #_60rg _8o _8r lfloat _ohe
+            #soup = BeautifulSoup(page_source,"lxml").decode('unicode_escape').encode('ISO-8859-1','ignore').decode('utf8','ignore')
+            #print(soup.encode("utf-8"))
+            #for link in soup.findAll('a', {'class': '_sv4'}):
+                #print(link.get('href'))
+            #elem = soup.findAll('a', {'id': 'js_4n'})
+            #print(elem)
+            #parser = MyHTMLParser()
+            #g = parser.feed(str(soup))
+            #print(g)
+             soup = BeautifulSoup(page_source,"lxml")
+             i = 1
+             for link in soup.findAll('a', {'class': '_60rg _8o _8r lfloat _ohe'}):
+                r = link.get('href')
+                #print(g)
+                g = r.replace('\n','')
+                z = g.replace('"','')
+            #print(g)
+                h = z.replace("'", "")
+                print(h)
+                #newquery="UPDATE TABLE123 set extracted = '"+h+"' where id = "+str(i)
+                newquery ="INSERT INTO  testdb.table234(id,extracted) VALUES("+str(i)+",'"+h+"')"
+                cursor.execute(newquery)
+                
+                conn.commit()
+                i = i + 1
+            
+             soup_str = str(soup)
+            
+            
+             g = soup_str.replace('\n','')
+             z = g.replace('"','')
+            #print(g)
+             h = z.replace("'", "")
+
+              
+             print("\nI can't wait to meet this person!\n")
     elif choice == 'q':
         
         print("\nThanks for playing. Bye.")
