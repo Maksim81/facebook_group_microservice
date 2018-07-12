@@ -97,7 +97,22 @@ def strip_tags(html):
 
 
 print("\t Test module 1  ")
-#print("    Please login to mysql server")
+print(" Use defaul user or create you own user[yes/no] ")
+
+yes = {'yes','y', 'ye', ''}
+no = {'no','n'}
+
+choice = input().lower()
+if choice in yes:
+   print("please enter you data: ")
+   usr = input("Enter facebook user name: ")
+   pwd = input("Enter facebook user password: ")
+elif choice in no:
+   print("you selecter our own acount: ")
+   usr = "mixanovatski13@gmail.com"
+   pwd = "devil6007472"
+else:
+   sys.stdout.write("Please respond with 'yes' or 'no'")
 #print("\n")
 #print("To connect to mysql server please fill all filed's")
 #h = input("Hostname: ")
@@ -114,23 +129,12 @@ try:
       
    choice = ''
    while choice != 'q':    
-         #display_title_bar()
-    
-    # Let users know what they can do.
+        
     print("\n[1] Start programm.")
     print("[q] Quit.")
     
     choice = input("What would you like to do? ")
-    #cursor = conn.cursor()
-    #cursor.execute("SELECT plain_html FROM table5") 
-    #linkfromtable = list(cursor.fetchall())
-    #for string in linkfromtable:
-          #soup_string = str(string)
-           #numStr = re.findall(r'\d+', soup_string)
-           #rx = re.compile('^.{11}$')#longer then 8 symbols
-           #result = [w for w in numStr if rx.match(w)]
     
-    # Respond to the user's choice.
     if choice == '1':
         
         config = configparser.ConfigParser()
@@ -213,8 +217,7 @@ try:
         print("Table created")
         print("Scrolind process have start")
         
-        usr = "mixanovatski13@gmail.com"
-        pwd = "devil6007472"
+        
         
         _browser_profile = webdriver.FirefoxProfile()
         _browser_profile.set_preference("dom.webnotifications.enabled", False)
@@ -323,7 +326,7 @@ try:
        
        
     
-        print("\nI can't wait to meet this person!\n")
+        print("\nData added to mysql database! \n")
     elif choice == 'q':
         
         print("\nThanks for playing. Bye.")
