@@ -1,6 +1,6 @@
-This is short documenation about project.
+#This is short documenation about project.
 
-Description: Microservice allows to store facebook profiles in the MySQL database
+#Description: Microservice allows to store facebook profiles in the MySQL database
 
 Getting started: 
 
