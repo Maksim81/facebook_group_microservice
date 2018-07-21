@@ -1,6 +1,6 @@
+missing module named 'pkg_resources.extern.pyparsing' - imported by pkg_resources._vendor.packaging.markers, pkg_resources._vendor.packaging.requirements
 missing module named __builtin__ - imported by numpy.core.numerictypes, numpy.core.numeric, scipy._lib.six, numpy.distutils.misc_util, numpy.lib.function_base, numpy.lib._iotools, numpy.ma.core, numpy, PIL.Image, pkg_resources._vendor.pyparsing, py._builtin
 missing module named ordereddict - imported by pkg_resources._vendor.pyparsing
-missing module named 'pkg_resources.extern.pyparsing' - imported by pkg_resources._vendor.packaging.markers, pkg_resources._vendor.packaging.requirements
 missing module named StringIO - imported by six, nltk.compat, numpy.lib.utils, numpy.testing.nose_tools.utils, scipy._lib.six, numpy.lib.format, urllib3.packages.six, requests.compat, nltk.corpus.reader.timit, selenium.webdriver.remote.webelement, django.utils.six, pkg_resources._vendor.six, py._io.capture
 missing module named 'com.sun' - imported by pkg_resources._vendor.appdirs
 missing module named com - imported by pkg_resources._vendor.appdirs
@@ -19,17 +19,15 @@ missing module named 'pkg_resources.extern.six.moves' - imported by pkg_resource
 missing module named pkg_resources.extern.six - imported by pkg_resources.extern, pkg_resources
 missing module named sets - imported by nltk.decorators, pytz.tzinfo, MySQLdb, py._builtin
 missing module named UserDict - imported by attr._compat, asn1crypto._ordereddict, pytz.lazy, PIL.PdfParser
-missing module named fcntl - imported by atomicwrites, progressbar.progressbar, django.core.files.locks, asyncio.unix_events, py._io.terminalwriter
-missing module named pylibmc - imported by django.core.cache.backends.memcached
-missing module named memcache - imported by django.core.cache.backends.memcached
 missing module named sqlparse - imported by django.db.backends.base.operations
+missing module named fcntl - imported by atomicwrites, progressbar.progressbar, django.core.files.locks, asyncio.unix_events, py._io.terminalwriter
 missing module named 'psycopg2.extras' - imported by django.db.backends.postgresql.base, django.db.backends.postgresql.operations
 missing module named 'psycopg2.extensions' - imported by django.db.backends.postgresql.base
 missing module named psycopg2 - imported by django.db.backends.postgresql.base, django.db.backends.postgresql.creation, django.db.backends.postgresql.schema
 missing module named cx_Oracle - imported by django.db.backends.oracle.base, django.db.backends.oracle.introspection
 missing module named exceptions - imported by _mysql_exceptions
-missing module named olefile - imported by PIL.MicImagePlugin, PIL.FpxImagePlugin
 missing module named Tkinter - imported by PIL.ImageTk
+missing module named olefile - imported by PIL.FpxImagePlugin, PIL.MicImagePlugin
 missing module named 'PySide.QtCore' - imported by PIL.ImageQt
 missing module named 'PyQt4.QtCore' - imported by PIL.ImageQt
 missing module named 'PyQt5.QtCore' - imported by PIL.ImageQt
@@ -53,6 +51,8 @@ missing module named cffi._pycparser - imported by cffi, cffi.cparser
 missing module named django.db.models.DurationField - imported by django.db.models, django.db.backends.oracle.functions, django.db.models.functions.datetime
 missing module named django.db.models.DecimalField - imported by django.db.models, django.db.backends.oracle.functions
 missing module named django.db.models.AutoField - imported by django.db.models, django.forms.models
+missing module named pylibmc - imported by django.core.cache.backends.memcached
+missing module named memcache - imported by django.core.cache.backends.memcached
 missing module named urllib.quote - imported by urllib, asn1crypto._iri, requests.compat, jinja2._compat, py._path.svnwc
 missing module named asyncio.DefaultEventLoopPolicy - imported by asyncio, asyncio.events
 missing module named pretty - imported by jinja2.utils
@@ -75,9 +75,9 @@ missing module named 'java.lang' - imported by platform, xml.sax._exceptions, C:
 missing module named vms_lib - imported by platform, C:\Users\MIkhail\eclipse-workspace\testSample\src\ConsoleApp.py
 missing module named termios - imported by tty, getpass, progressbar.progressbar, django.utils.autoreload, C:\Users\MIkhail\eclipse-workspace\testSample\src\ConsoleApp.py, py._io.terminalwriter
 missing module named grp - imported by shutil, tarfile, pathlib, distutils.archive_util, C:\Users\MIkhail\eclipse-workspace\testSample\src\ConsoleApp.py, py._path.local
-missing module named 'org.python' - imported by copy, xml.sax, setuptools.sandbox, C:\Users\MIkhail\eclipse-workspace\testSample\src\ConsoleApp.py
 missing module named pwd - imported by posixpath, shutil, tarfile, http.server, webbrowser, netrc, getpass, pathlib, distutils.util, distutils.archive_util, psutil, C:\Users\MIkhail\eclipse-workspace\testSample\src\ConsoleApp.py, py._path.local
 missing module named _dummy_threading - imported by dummy_threading, C:\Users\MIkhail\eclipse-workspace\testSample\src\ConsoleApp.py
+missing module named 'org.python' - imported by copy, xml.sax, setuptools.sandbox, C:\Users\MIkhail\eclipse-workspace\testSample\src\ConsoleApp.py
 missing module named urllib.urlopen - imported by urllib, _pytest.pastebin
 missing module named urllib.getproxies_environment - imported by urllib, requests.compat
 missing module named urllib.proxy_bypass_environment - imported by urllib, requests.compat

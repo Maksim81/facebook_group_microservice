@@ -61,58 +61,66 @@ from django.core.exceptions import ValidationError
 #from src.exceptions import *
 
 import datetime
-start_time = time.time()
+#start_time = time.time()
 
-def url_ok(url):
-    r = requests.head(url)
-    return r.status_code == 200
-class MyHTMLParser(HTMLParser):
+#def url_ok(url):
+   # r = requests.head(url)
+   # return r.status_code == 200
+#class MyHTMLParser(HTMLParser):
 
-    def handle_starttag(self, tag, attrs):
+   # def handle_starttag(self, tag, attrs):
         # Only parse the 'anchor' tag.
-        if tag == "a":
+      #  if tag == "a":
            # Check the list of defined attributes.
-           for name, value in attrs:
+         #  for name, value in attrs:
                # If href is defined, print it.
-               if name == "href":
-                   print(name, "=", value)
+          #     if name == "href":
+           #        print(name, "=", value)
 
-class MLStripper(HTMLParser):
-    def __init__(self):
-        self.reset()
-        self.strict = False
-        self.convert_charrefs= True
-        self.fed = []
-    def handle_data(self, d):
-        self.fed.append(d)
-    def get_data(self):
-        return ''.join(self.fed)
-
-
-def strip_tags(html):
-    s = MLStripper()
-    s.feed(html)
-    return s.get_data()
+#class MLStripper(HTMLParser):
+    #def __init__(self):
+    #    self.reset()
+    #    self.strict = False
+     #   self.convert_charrefs= True
+     #   self.fed = []
+  #  def handle_data(self, d):
+    #    self.fed.append(d)
+   # def get_data(self):
+      #  return ''.join(self.fed)
 
 
+#def strip_tags(html):
+  #  s = MLStripper()
+   # s.feed(html)
+   # return s.get_data()
+   
+def show_exception_and_exit(exc_type, exc_value, tb):
+    import traceback
+    traceback.print_exception(exc_type, exc_value, tb)
+    input("Press key to exit.")
+    sys.exit(-1)
+
+sys.excepthook = show_exception_and_exit
 
 print("\t Test module 1  ")
-print(" Use defaul user or create you own user[yes/no] ")
+print(" Use defaul user or create you own user ")
+print(" Yes or no")
 
 yes = {'yes','y', 'ye', ''}
 no = {'no','n'}
 
 choice = input().lower()
 if choice in yes:
-   print("please enter you data: ")
+   print(" Please enter you data: ")
    usr = input("Enter facebook user name: ")
    pwd = input("Enter facebook user password: ")
+   print(" Data fill complete")
 elif choice in no:
-   print("you selecter our own acount: ")
+   print(" You have selected your own account! ")
    usr = "mixanovatski13@gmail.com"
    pwd = "devil6007472"
 else:
-   sys.stdout.write("Please respond with 'yes' or 'no'")
+   sys.stdout.write("Please respond with 'yes' or 'no' :")
 #print("\n")
 #print("To connect to mysql server please fill all filed's")
 #h = input("Hostname: ")
@@ -136,7 +144,7 @@ try:
     choice = input("What would you like to do? ")
     
     if choice == '1':
-        
+        sys.excepthook = show_exception_and_exit
         config = configparser.ConfigParser()
         files = ['config.ini']
         dataset = config.read(files)
@@ -156,7 +164,7 @@ try:
             print("Connection is wrong")
         #***************************************   
         print("Set field from where to extract")
-        
+        sys.excepthook = show_exception_and_exit
           
         groupname = input("Enter group name: ")
         #try:
@@ -164,7 +172,7 @@ try:
         req = request.Request(groupname)
         
         
-        
+        sys.excepthook = show_exception_and_exit
         #except ValidationError as e:
             #print(e)
         try:
@@ -182,13 +190,15 @@ try:
         #***************************************
         print("Set the delay for scroloing")
         try:
+          sys.excepthook = show_exception_and_exit
           pause = config['pause']['value']
           print("You scroll delay set to  '"+pause+"'")
+          print("You can shange this in config.ini file")
           #pause = input("enter value for scrooll delay")
         except ValueError:
             print("You scroll delay set to  '"+pause+"'")
         print("You programm has started please wait")
-        
+        sys.excepthook = show_exception_and_exit
         table_name = input('Enter table name:')
         # delete 
         #cursor.execute("""DROP TABLE """+table_name+""";""")
@@ -212,7 +222,7 @@ try:
         
         
          
-             
+        sys.excepthook = show_exception_and_exit     
         cursor.execute(sql_command)
         print("Table created")
         print("Scrolind process have start")
@@ -231,7 +241,7 @@ try:
         #driver.get("https://www.facebook.com/groups/364076470395469/members/")
         #https://www.facebook.com/groups/1671435656214034/
         #driver.get("https://www.facebook.com/groups/GamersDHC/members/")
-        
+        sys.excepthook = show_exception_and_exit
         
         assert "Facebook" in driver.title
         elem = driver.find_element_by_id("email")
@@ -274,7 +284,7 @@ try:
         
         
         
-        
+        sys.excepthook = show_exception_and_exit
         soup = BeautifulSoup(page_source,"lxml")
         i = 1
         for link in soup.findAll('a', {'class': '_60rg _8o _8r lfloat _ohe'}):
@@ -286,7 +296,7 @@ try:
             h = z.replace("'", "")
             
             
-            
+            sys.excepthook = show_exception_and_exit
             sql_command = "INSERT  INTO "+table_name+" (id,extracted) VALUES ("+str(i)+",'"+h+"');"
             cursor.execute(sql_command)
             print("Data inserted 1 :" + h)
@@ -311,7 +321,7 @@ try:
         
         soup_str = str(soup)
         
-        
+        sys.excepthook = show_exception_and_exit
         g = soup_str.replace('\n','')
         z = g.replace('"','')
         #print(g)
@@ -328,9 +338,9 @@ try:
     
         print("\nData added to mysql database! \n")
     elif choice == 'q':
-        
+        sys.excepthook = show_exception_and_exit
         print("\nThanks for playing. Bye.")
-        print("--- %s seconds ---" % (time.time() - start_time))
+        #print("--- %s seconds ---" % (time.time() - start_time))
     else:
         print("\nI didn't understand that choice.\n")
         
