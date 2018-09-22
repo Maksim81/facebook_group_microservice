@@ -49,229 +49,253 @@ from html.parser import HTMLParser
 import mysql.connector
 import configparser
 import os
-import requests , urlopen
+
 from urllib.request import URLError
 from urllib import request
-import progressbar
+#import progressbar
 from time import sleep
 import sys
-from django.core.validators import URLValidator
-from django.core.exceptions import ValidationError
+#from django.core.validators import URLValidator
+#from django.core.exceptions import ValidationError
 import numpy
 
 #from src.exceptions import *
 import difflib
+#from src import driver
 d = difflib.Differ()
 import datetime
 #start_time = time.time()
 
-#def url_ok(url):
-   # r = requests.head(url)
-   # return r.status_code == 200
-#class MyHTMLParser(HTMLParser):
 
-   # def handle_starttag(self, tag, attrs):
-        # Only parse the 'anchor' tag.
-      #  if tag == "a":
-           # Check the list of defined attributes.
-         #  for name, value in attrs:
-               # If href is defined, print it.
-          #     if name == "href":
-           #        print(name, "=", value)
-
-#class MLStripper(HTMLParser):
-    #def __init__(self):
-    #    self.reset()
-    #    self.strict = False
-     #   self.convert_charrefs= True
-     #   self.fed = []
-  #  def handle_data(self, d):
-    #    self.fed.append(d)
-   # def get_data(self):
-      #  return ''.join(self.fed)
+print("\t Facebook User data ")
+config = configparser.ConfigParser()
+files = ['config.ini']
+dataset = config.read(files)
+if len(dataset) != len(files):
+            raise ValueError("Failed to open/find all files")
+else:
+    print(" File found")
 
 
-#def strip_tags(html):
-  #  s = MLStripper()
-   # s.feed(html)
-   # return s.get_data()
+print(" Select default acoount or use you own ")
+print(" Please answer witch(Yes or no)")
+
+yes = {'yes','y', 'ye', ''}
+no = {'no','n'}
+
+choice = input().lower()
+if choice in yes:
+   print(" Please enter you data: ")
+   usr = input("Enter facebook user name: ")
+   pwd = input("Enter facebook user password: ")
+   print(" Data fill complete")
+elif choice in no:
+   print(" You have chose our accaunt ")
+   sr =  config['user']['mail']
+   pwd =  config['user']['password']
+else:
+   sys.stdout.write("Please respond with 'yes' or 'no' :") 
    
-def show_exception_and_exit(exc_type, exc_value, tb):
-    import traceback
-    traceback.print_exception(exc_type, exc_value, tb)
-    input("Press key to exit.")
-    sys.exit(-1)
+   
+configMysql = {
+  'user': 'root',
+  'password': 'root',
+  'unix_socket': '/Applications/MAMP/tmp/mysql/mysql.sock',
+  'database': 'testdb',
+  'raise_on_warnings': True,
+}
 
-sys.excepthook = show_exception_and_exit
+link = mysql.connector.connect(**configMysql)
+cursor = link.cursor()
 
-usr = "mixanovatski13@gmail.com"
-pwd = "devil6007472"
-url = 'https://www.facebook.com/groups/364076470395469/members/'      
-        
-        
-_browser_profile = webdriver.FirefoxProfile()
-_browser_profile.set_preference("dom.webnotifications.enabled", False)
-        
-driver = webdriver.Firefox(firefox_profile=_browser_profile)
-        
-driver.maximize_window()
 
-driver.get(url)
-
-assert "Facebook" in driver.title
-elem = driver.find_element_by_id("email")
-elem.send_keys(usr)
-elem = driver.find_element_by_id("pass")
-elem.send_keys(pwd)
-elem.send_keys(Keys.RETURN)
-driver.find_element_by_id('loginbutton').click()
-        
-        
-
-        #driver.get("https://www.facebook.com/groups/364076470395469/members/")
-        #https://www.facebook.com/groups/1671435656214034/
-        #driver.get("https://www.facebook.com/groups/GamersDHC/members/")
-        #https://www.facebook.com/groups/413675908981726/members/
-        
-       
-        
-        
-pause = 3
-wait = WebDriverWait(driver, 100)
-time.sleep(pause)
-        
-lastHeight = driver.execute_script("return document.body.scrollHeight")
-        #print(lastHeight)
-i = 1
-        #driver.get_screenshot_as_file("test03_1_"+str(i)+".jpg")
-        
-
-page_source = driver.page_source 
-soup1 = BeautifulSoup(page_source,"lxml")
-soup_string2 = str(soup1)
 
     
-           #print(r)
-        #a = numpy.ndarray(int(r))
-        #t = buffer(page_source)
-g =  driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-print("page loaded")
-sleep(2)
-page_source = driver.page_source  
-soup2 = BeautifulSoup(page_source,"lxml")
-soup_string2 = str(soup2)
+    
+    
+    
+#conn = mysql.connector.connect(**config)
+#cursor = conn.cursor()
+if link.is_connected():
+      print("Connected to mysql Database")
+else:
+        print("Connection is wrong") 
+     
+     
 
+   
+   
+try:   
+    
+       choice = ''
+       while choice != 'q':    
+            
+        print("\n[1] Start programm.")
+        print("[q] Quit.")
+        
+        choice = input("What would you like to do? ")
+        
+        if choice == '1': 
+            
+            
 
-
-
-        
-        
-        
-           #print(r)
-        #b = numpy.ndarray(int(r)) 
-        #result_scroll = numpy.ndarray(rs - rz)
-        #print()
-           
-        #time.sleep(10)
-        #page_source = driver.page_source   
+            usr =  config['user']['mail']
+            pwd =  config['user']['password']
             
-        # Initial call to print 0% progress
-        #print("Collecting data(List growing)")
             
-           
-#try:
-              #  newHeight = driver.execute_script("return document.body.scrollHeight")
-#except:
-             #   raise
+            groupname = config['siteLink']['link']
+            print("Group name from file selected : "+groupname)
+            #url = 'https://www.facebook.com/groups/364076470395469/members/'  
             
-#if newHeight == lastHeight:
-    #    break
-#lastHeight = newHeight
-#i += 1
+            pause = config['pause']['value']
+            print("Scroll dalay from config file : "+pause) 
+            pause = int(pause)
             
-        #page_source = driver.page_source
-        
-        #gs = page_source.replace('\n','')
-        #zs = gs.replace('"','')
-        #print(g)
-        #hs = zs.replace("'", "")
-        
-        #print(hs)
-        #sql_command = "INSERT  INTO "+table_name+" (plain_html) VALUES ('"+hs+"');"
-        #cursor.execute(sql_command)
-        #print("Data inserted 1 :" + hs)
-        
-        #driver.close()
-        
-        
-        
-        
-        #soup = BeautifulSoup(page_source,"lxml")
-        #i = 1
-        #for link in soup.findAll('a', {'class': '_60rg _8o _8r lfloat _ohe'}):
-           # r = link.get('href')
-            #print(g)
-            #g = r.replace('\n','')
-            #z = g.replace('"','')
-        #print(g)
-           # h = z.replace("'", "")
+               
+                    
+                    
+            _browser_profile = webdriver.FirefoxProfile()
+            _browser_profile.set_preference("dom.webnotifications.enabled", False)
+            #_browser_profile.set_preference("network.cookie.cookieBehavior", 2)
+            _browser_profile.cookies_enabled = False
+                    
+            #driver = webdriver.Firefox(firefox_profile=_browser_profile)
+            driver = webdriver.Firefox(executable_path='/usr/local/bin/geckodriver',firefox_profile=_browser_profile)
+                    
+            driver.maximize_window()
+            
+            driver.get(groupname)
+            
+            assert "Facebook" in driver.title
+            elem = driver.find_element_by_id("email")
+            elem.send_keys(usr)
+            elem = driver.find_element_by_id("pass")
+            elem.send_keys(pwd)
+            elem.send_keys(Keys.RETURN)
+            driver.find_element_by_id('loginbutton').click()
+                    
+                    
+            
+                    #driver.get("https://www.facebook.com/groups/364076470395469/members/")
+                    #https://www.facebook.com/groups/1671435656214034/
+                    #driver.get("https://www.facebook.com/groups/GamersDHC/members/")
+                    #https://www.facebook.com/groups/413675908981726/members/
+                    
+                   
+                    
+                    
+            #pause = 1
+            wait = WebDriverWait(driver, 100)
+            time.sleep(pause)
+                  
+            lastHeight = driver.execute_script("return document.body.scrollHeight")
             
             
             
-            #sql_command = "INSERT  INTO "+table_name+" (id,extracted) VALUES ("+str(i)+",'"+h+"');"
-            #cursor.execute(sql_command)
-           # print("Data inserted 1 :" + h)
-            
-            
-            
-            #createsqltable = """"DROP TABLE IF EXISTS '"""+table_name+"""';
-            #CREATE TABLE IF NOT EXISTS '"""+table_name+"""' (
-            #`id` int(11) NOT NULL DEFAULT '0',
-            #`plain_html` longtext,
-            #`extracted` mediumtext
-            # ) ENGINE=MyISAM DEFAULT CHARSET=latin1; """
-            #cursor.execute(createsqltable)
-            #print("table created",createsqltable)
-            
-            #newquery ="INSERT IGNORE INTO  "+table_name+"(id,extracted) VALUES("+str(i)+",'"+h+"')"
-            #cursor.execute(createsqltable,newquery)
-           # print("data inserted")
-            
-            #conn.commit()
-            #i = i + 1
-        
-        #soup_str = str(soup)
-        
-        
-        #g = soup_str.replace('\n','')
-        #z = g.replace('"','')
-        #print(g)
-        #h = z.replace("'", "")
-
-        
-    #elif choice == '2':   
-       # cursor.execute("SELECT plain_html FROM "+table_name+" where id = 1")
-
-       # linkfromtable = list(cursor.fetchall())
-       # i = 1
-        #for string in linkfromtable:
-           # soup_string = str(string)
-            #print(soup_string)
-           # soup = BeautifulSoup(soup_string,"lxml")
-        # it will cover all cases id="p4423234" id="p5547" id="p4124234" id="234"
-        
-            #a =  soup.find_all('a', attrs={'id': re.compile('^p?\d+$')})
-            #for i in a:
-                #print(i['href'])
-           # i = 1
-            #for link in soup.findAll('a', {'class': '_60rg _8o _8r lfloat _ohe'}):
-              #  r = link.get('href')
-              #  print(r)
-        
-      
+            while True:
+                soup_ff = BeautifulSoup(driver.page_source,'lxml')
+                        #entries = soup_ff.select('div.clearfix > a')
+                entries = soup_ff.select('div._60ri > a')
+                s = [x.encode('utf-8') for x in entries]
+                        #print(s)
+                urls = re.findall(r'(https?://[^\s]+)', str(s))
+                        #print(urls)
+                i = 1    
+                for e in urls:
+                            #print(i,e)
+                            i += 1
+                g =  driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+                time.sleep(pause)
+                        
+                soup_gg = BeautifulSoup(driver.page_source, 'lxml')
+                        #entries = soup_gg.select('div.clearfix > a')
+                entries = soup_gg.select('div._60ri > a')
+                g = [x.encode('utf-8') for x in entries]
+                        #print(g)
+                _urls = re.findall(r'(https?://[^\s]+)', str(g))
+                        #print(_urls)
+                i = 1    
+                for e in _urls:
+                            #print(i,e)
+                            i += 1
+                z = list(set(_urls) - set(urls))
+                i = 1    
+                for e in z:
+                            #print(i,e)
+                            #i += 1
+                    u = str(e)
+                            #print(u)
+                        
+                    g = u.replace('\n','')
+                    p = g.replace('"','')
+                        #print(g)
+                    h = p.replace("'", "")
+                            
+                    sql_command = "INSERT  INTO testdb.cc_facebook (id,extracted) VALUES ("+str(i)+",'"+h+"');"
+                    cursor.execute(sql_command)
+                            
+                    print("Data inserted  :" + h)
+                    i += 1
+                            
+                new_height = driver.execute_script("return document.body.scrollHeight")
                 
-       
-       
-       
-    
-        
+                
+                if new_height == lastHeight:
+                        break
+                last_height = new_height
+            
+            #driver.close()
+            driver.execute_script("window.scrollTo(0, 0);")
+            entries = soup_gg.select('div._60ri > a')
+            g = [x.encode('utf-8') for x in entries]
+            print(g)
+            _urls = re.findall(r'(https?://[^\s]+)', str(g))
+            #print(_urls)
+            i = 1    
+            for e in _urls:
+                    #print(e)
+                    #i += 1
+                    u = str(e)
+                    #print(u)
+                
+                    g = u.replace('\n','')
+                    p = g.replace('"','')
+                #print(g)
+                    h = p.replace("'", "")
+                            
+                            
+            #cursor.execute("SELECT extracted FROM testdb.cc_facebook;")
+                              # use fetchall to get all the return results which is a list object
+            #result_set = cursor.fetchall()
+                            #print(result_set)  
+            #extracted_result = [x for x in result_set]
+                            #print(extracted_result)
+                                
+            cursor.execute("SELECT extracted FROM testdb.cc_facebook;")
+                              # use fetchall to get all the return results which is a list object
+            result_set = cursor.fetchall()
+                            #print(result_set)  
+            auto = [x for x in result_set]  
+                            #print(auto)  
+                            #i = 1    
+                            #for e in _urls:
+                                    #print(i,e)
+                                   # i += 1
+                            
+            zs = list(set(g) - set(auto))
+            print("New users"+str(zs))
+            i = 1
+            for e in zs:
+                                    #print(i,e)
+                i += 1
+                            
+        elif choice == 'q':
+                    #sys.excepthook = show_exception_and_exit
+                    print("\nThanks for playing. Bye.")
+                        #print("--- %s seconds ---" % (time.time() - start_time))
+        else:
+                    print("\nI didn't understand that choice.\n")           
+                        
+                        
+except mysql.connector.Error as e:
+    print(e)     

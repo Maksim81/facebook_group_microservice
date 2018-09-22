@@ -21,11 +21,11 @@ import os
 import requests , urlopen
 from urllib.request import URLError
 from urllib import request
-import progressbar
+#import progressbar
 from time import sleep
 import sys
-from django.core.validators import URLValidator
-from django.core.exceptions import ValidationError
+#from django.core.validators import URLValidator
+#from django.core.exceptions import ValidationError
 from selenium import webdriver
 from datetime import datetime
 from selenium.webdriver.support.ui import WebDriverWait
@@ -33,7 +33,7 @@ from selenium.webdriver.common.keys import Keys
 from time import sleep
 import sys
 import os
-import xmltodict
+#import xmltodict
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By

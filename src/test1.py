@@ -52,11 +52,11 @@ import os
 import requests , urlopen
 from urllib.request import URLError
 from urllib import request
-import progressbar
+
 from time import sleep
 import sys
-from django.core.validators import URLValidator
-from django.core.exceptions import ValidationError
+#from django.core.validators import URLValidator
+#from django.core.exceptions import ValidationError
 
 #from src.exceptions import *
 
@@ -233,9 +233,12 @@ try:
         print("Table created")
         print("Scrolind process have start")
         
+        browser_profile = webdriver.FirefoxProfile()
+        browser_profile.set_preference("dom.webnotifications.enabled", False)
         
         
-        _browser_profile = webdriver.FirefoxProfile()
+        
+        _browser_profile = webdriver.Firefox(executable_path='/usr/local/bin/geckodriver',firefox_profile=browser_profile)
         _browser_profile.set_preference("dom.webnotifications.enabled", False)
         
         driver = webdriver.Firefox(firefox_profile=_browser_profile)
@@ -264,6 +267,8 @@ try:
         #print(lastHeight)
         i = 1
         #driver.get_screenshot_as_file("test03_1_"+str(i)+".jpg")
+        
+        last_height = driver.execute_script("return document.body.scrollHeight")
         
         while True:
             soup_ff = BeautifulSoup(driver.page_source,'lxml')
@@ -311,6 +316,8 @@ try:
                 cursor.execute(sql_command)
                 print("Data inserted 1 :" + h)
                 i += 1
+                
+        
             
             
         # Initial call to print 0% progress
