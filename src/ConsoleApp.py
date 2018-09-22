@@ -49,18 +49,19 @@ from html.parser import HTMLParser
 import mysql.connector
 import configparser
 import os
-import requests , urlopen
+
 from urllib.request import URLError
 from urllib import request
-import progressbar
+#import progressbar
 from time import sleep
 import sys
-from django.core.validators import URLValidator
-from django.core.exceptions import ValidationError
+#from django.core.validators import URLValidator
+#from django.core.exceptions import ValidationError
 
 #from src.exceptions import *
 
 import datetime
+
 #start_time = time.time()
 
 #def url_ok(url):
@@ -102,9 +103,18 @@ def show_exception_and_exit(exc_type, exc_value, tb):
 
 sys.excepthook = show_exception_and_exit
 
-print("\t Test module 1  ")
-print(" Use defaul user or create you own user ")
-print(" Yes or no")
+print("\t Facebook User data ")
+config = configparser.ConfigParser()
+files = ['config.ini']
+dataset = config.read(files)
+if len(dataset) != len(files):
+            raise ValueError("Failed to open/find all files")
+else:
+    print(" File found")
+
+
+print(" Select default acoount or use you own ")
+print(" Please answer witch(Yes or no)")
 
 yes = {'yes','y', 'ye', ''}
 no = {'no','n'}
@@ -116,18 +126,34 @@ if choice in yes:
    pwd = input("Enter facebook user password: ")
    print(" Data fill complete")
 elif choice in no:
-   print(" You have selected your own account! ")
-   usr = "mixanovatski13@gmail.com"
-   pwd = "devil6007472"
+   print(" You have chose our accaunt ")
+   usr =  config['user']['mail']
+   pwd =  config['user']['password']
 else:
-   sys.stdout.write("Please respond with 'yes' or 'no' :")
-#print("\n")
-#print("To connect to mysql server please fill all filed's")
-#h = input("Hostname: ")
-#u = input("User: ")
-#p = input("Password: ")
-#d = input("Database: ")
-#print(h,u,p,d)
+   sys.stdout.write("Please respond with 'yes' or 'no' :") 
+   
+   
+configMysql = {
+  'user': 'root',
+  'password': 'root',
+  'unix_socket': '/Applications/MAMP/tmp/mysql/mysql.sock',
+  'database': 'testdb',
+  'raise_on_warnings': True,
+}
+
+link = mysql.connector.connect(**configMysql)
+cursor = link.cursor()
+
+
+
+#conn = mysql.connector.connect(**config)
+#cursor = conn.cursor()
+if link.is_connected():
+      print("Connected to mysql Database")
+else:
+        print("Connection is wrong") 
+        
+
 try:
    #conn = my.connect(host = h, user= u, passwd=p, db=d)
    #conn = mysql.connector.connect(user="root", passwd="devil6007472", db="testdb")
@@ -144,62 +170,8 @@ try:
     choice = input("What would you like to do? ")
     
     if choice == '1':
-        sys.excepthook = show_exception_and_exit
-        config = configparser.ConfigParser()
-        files = ['config.ini']
-        dataset = config.read(files)
-        if len(dataset) != len(files):
-            raise ValueError("Failed to open/find all files")
-        
-           
-        
-        conn = mysql.connector.connect(host = config['mysqlDB']['host'],
-                                   user = config['mysqlDB']['user'],
-                                   passwd = config['mysqlDB']['pass'],
-                                   db = config['mysqlDB']['db'])
-        cursor = conn.cursor()
-        if conn.is_connected():
-            print(" Connected to mysql Database")
-        else:
-            print("Connection is wrong")
-        #***************************************   
-        print("Set field from where to extract")
-        sys.excepthook = show_exception_and_exit
-          
-        groupname = input("Enter group name: ")
-        #try:
-        headers = { 'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/32.0.1700.107 Safari/537.36' }
-        req = request.Request(groupname)
         
         
-        sys.excepthook = show_exception_and_exit
-        #except ValidationError as e:
-            #print(e)
-        try:
-            response = request.urlopen(req)
-        except URLError  as e:
-            if hasattr(e, 'reason'):
-                print('We failed to reach a server.')
-                print('Reason: '), e.reason
-            elif hasattr(e, 'code'):
-                print('The server couldn\'t fulfill the request.')
-                print('Error code: '), e.code
-        else:
-            print('URL is good!')
-        
-        #***************************************
-        print("Set the delay for scroloing")
-        try:
-          sys.excepthook = show_exception_and_exit
-          pause = config['pause']['value']
-          print("You scroll delay set to  '"+pause+"'")
-          print("You can shange this in config.ini file")
-          #pause = input("enter value for scrooll delay")
-        except ValueError:
-            print("You scroll delay set to  '"+pause+"'")
-        print("You programm has started please wait")
-        sys.excepthook = show_exception_and_exit
-        table_name = input('Enter table name:')
         # delete 
         #cursor.execute("""DROP TABLE """+table_name+""";""")
             #print(h)
@@ -212,19 +184,19 @@ try:
         #`extracted` mediumtext
         #) ENGINE=MyISAM DEFAULT CHARSET=latin1;"""
         
-        sql_command = """
-        CREATE TABLE """+table_name+""" ( 
-         `id` int(11) NOT NULL DEFAULT '0',
-          `plain_html` longtext,
-          `extracted` mediumtext,
-          PRIMARY KEY (`id`)
-        ) ENGINE=MyISAM DEFAULT CHARSET=latin1;"""
+        #sql_command = """
+        #CREATE TABLE """+table_name+""" ( 
+         #`id` int(11) NOT NULL DEFAULT '0',
+         # `plain_html` longtext,
+          #`extracted` mediumtext,
+         # PRIMARY KEY (`id`)
+        #) ENGINE=MyISAM DEFAULT CHARSET=latin1;"""
         
         
          
-        sys.excepthook = show_exception_and_exit     
-        cursor.execute(sql_command)
-        print("Table created")
+       # sys.excepthook = show_exception_and_exit     
+        #cursor.execute(sql_command)
+        #print("Table created")
         print("Scrolind process have start")
         
         
@@ -232,11 +204,13 @@ try:
         _browser_profile = webdriver.FirefoxProfile()
         _browser_profile.set_preference("dom.webnotifications.enabled", False)
         
-        driver = webdriver.Firefox(firefox_profile=_browser_profile)
+        driver = webdriver.Firefox(executable_path='/usr/local/bin/geckodriver',firefox_profile=_browser_profile)
         
         driver.maximize_window()
         
-        
+        #groupname = "https://www.facebook.com/groups/GamersDHC/members/" 
+        groupname = config['siteLink']['link']
+        print("Group name from file selected : "+groupname)
         driver.get(groupname)
         #driver.get("https://www.facebook.com/groups/364076470395469/members/")
         #https://www.facebook.com/groups/1671435656214034/
@@ -252,7 +226,7 @@ try:
         driver.find_element_by_id('loginbutton').click()
         
         
-        pause = int(pause)
+        pause = 3
         wait = WebDriverWait(driver, 100)
         lastHeight = driver.execute_script("return document.body.scrollHeight")
         #print(lastHeight)
@@ -260,46 +234,105 @@ try:
         #driver.get_screenshot_as_file("test03_1_"+str(i)+".jpg")
         
         while True:
-            g =  driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-            time.sleep(pause)
+            
+                soup_ff = BeautifulSoup(driver.page_source,'lxml')
+                        #entries = soup_ff.select('div.clearfix > a')
+                entries = soup_ff.select('div._60ri > a')
+                s = [x.encode('utf-8') for x in entries]
+                        #print(s)
+                urls = re.findall(r'(https?://[^\s]+)', str(s))
+                        #print(urls)
+                i = 1    
+                for e in urls:
+                            #print(i,e)
+                            i += 1
+                g =  driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+                time.sleep(pause)
+                        
+                soup_gg = BeautifulSoup(driver.page_source, 'lxml')
+                        #entries = soup_gg.select('div.clearfix > a')
+                entries = soup_gg.select('div._60ri > a')
+                g = [x.encode('utf-8') for x in entries]
+                        #print(g)
+                _urls = re.findall(r'(https?://[^\s]+)', str(g))
+                        #print(_urls)
+                i = 1    
+                for e in _urls:
+                            #print(i,e)
+                            i += 1
+                z = list(set(_urls) - set(urls))
+                i = 1    
+                for e in z:
+                            #print(i,e)
+                            #i += 1
+                    u = str(e)
+                            #print(u)
+                        
+                    g = u.replace('\n','')
+                    p = g.replace('"','')
+                        #print(g)
+                    h = p.replace("'", "")
+                    #table =  config['table']['testdb.cccc_facebook']       
+                    sql_command = "INSERT  INTO testdb.cccc_facebook (id,extracted) VALUES ("+str(i)+",'"+h+"');"
+                    cursor.execute(sql_command)
+                            
+                    print("Data inserted  :" + h)
+                    i += 1
+            
+                
             
             
         # Initial call to print 0% progress
-            print("Data added to mysql database")
+                print("Data added to mysql database")
             
            
-            try:
-                newHeight = driver.execute_script("return document.body.scrollHeight")
-            except:
-                raise
-            
-            if newHeight == lastHeight:
-                break
-            lastHeight = newHeight
-            i += 1
+                try:
+                    newHeight = driver.execute_script("return document.body.scrollHeight")
+                except:
+                    raise
+                
+                if newHeight == lastHeight:
+                    break
+                lastHeight = newHeight
+                i += 1
             
         page_source = driver.page_source
         
-        driver.close()
+        #driver.close()
+        driver.execute_script("window.scrollTo(0, 0);")
+        entries = soup_gg.select('div._60ri > a')
+        g = [x.encode('utf-8') for x in entries]
+        facebook_urls = re.findall(r'(https?://[^\s]+)', str(g))
+        print(facebook_urls)
+        
+        cursor = link.cursor()
+        cursor.execute("SELECT extracted FROM testdb.cc_facebook;")
+        results = cursor.fetchall()
+        mysqllinks = [x for x in results]
+         
+        #g = auto.replace('(','')
+
+        #p = g.replace(')','')
+        print(mysqllinks)
         
         
         
-        sys.excepthook = show_exception_and_exit
-        soup = BeautifulSoup(page_source,"lxml")
-        i = 1
-        for link in soup.findAll('a', {'class': '_60rg _8o _8r lfloat _ohe'}):
-            r = link.get('href')
+        #sys.excepthook = show_exception_and_exit
+        #soup = BeautifulSoup(page_source,"lxml")
+        #i = 1
+        #for link in soup.findAll('a', {'class': '_60rg _8o _8r lfloat _ohe'}):
+            #r = link.get('href')
             #print(g)
-            g = r.replace('\n','')
-            z = g.replace('"','')
+            #g = r.replace('\n','')
+            #z = g.replace('"','')
         #print(g)
-            h = z.replace("'", "")
+            #h = z.replace("'", "")
             
             
-            sys.excepthook = show_exception_and_exit
-            sql_command = "INSERT  INTO "+table_name+" (id,extracted) VALUES ("+str(i)+",'"+h+"');"
-            cursor.execute(sql_command)
-            print("Data inserted 1 :" + h)
+            #sys.excepthook = show_exception_and_exit
+            #sql_command = "INSERT  INTO "+table_name+" (id,extracted) VALUES ("+str(i)+",'"+h+"');"
+            #cursor.execute(sql_command)
+            #print("Data inserted 1 :" + h)
             
             
             
@@ -317,15 +350,15 @@ try:
            # print("data inserted")
             
             #conn.commit()
-            i = i + 1
+            #i = i + 1
         
-        soup_str = str(soup)
+        #soup_str = str(soup)
         
         sys.excepthook = show_exception_and_exit
-        g = soup_str.replace('\n','')
-        z = g.replace('"','')
+        #g = soup_str.replace('\n','')
+        #z = g.replace('"','')
         #print(g)
-        h = z.replace("'", "")
+        #h = z.replace("'", "")
 
         
         
