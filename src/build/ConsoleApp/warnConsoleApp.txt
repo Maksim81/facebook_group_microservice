@@ -1,10 +1,11 @@
-missing module named 'pkg_resources.extern.pyparsing' - imported by pkg_resources._vendor.packaging.markers, pkg_resources._vendor.packaging.requirements
+missing module named 'win32com.gen_py' - imported by win32com, c:\users\mikhail\appdata\local\programs\python\python36-32\lib\site-packages\PyInstaller\loader\rthooks\pyi_rth_win32comgenpy.py
+missing module named pyimod03_importers - imported by c:\users\mikhail\appdata\local\programs\python\python36-32\lib\site-packages\PyInstaller\loader\rthooks\pyi_rth_pkgres.py
 missing module named __builtin__ - imported by numpy.core.numerictypes, numpy.core.numeric, scipy._lib.six, numpy.distutils.misc_util, numpy.lib.function_base, numpy.lib._iotools, numpy.ma.core, numpy, PIL.Image, pkg_resources._vendor.pyparsing, py._builtin
 missing module named ordereddict - imported by pkg_resources._vendor.pyparsing
-missing module named StringIO - imported by six, nltk.compat, numpy.lib.utils, numpy.testing.nose_tools.utils, scipy._lib.six, numpy.lib.format, urllib3.packages.six, requests.compat, nltk.corpus.reader.timit, selenium.webdriver.remote.webelement, django.utils.six, pkg_resources._vendor.six, py._io.capture
 missing module named 'com.sun' - imported by pkg_resources._vendor.appdirs
 missing module named com - imported by pkg_resources._vendor.appdirs
-missing module named 'win32com.gen_py' - imported by win32com, c:\users\mikhail\appdata\local\programs\python\python36-32\lib\site-packages\PyInstaller\loader\rthooks\pyi_rth_win32comgenpy.py
+missing module named 'pkg_resources.extern.pyparsing' - imported by pkg_resources._vendor.packaging.markers, pkg_resources._vendor.packaging.requirements
+missing module named StringIO - imported by six, nltk.compat, numpy.lib.utils, numpy.testing.nose_tools.utils, scipy._lib.six, numpy.lib.format, urllib3.packages.six, requests.compat, nltk.corpus.reader.timit, selenium.webdriver.remote.webelement, pkg_resources._vendor.six, py._io.capture
 missing module named __main__ - imported by pkg_resources
 missing module named multiprocessing.SimpleQueue - imported by multiprocessing, concurrent.futures.process
 missing module named multiprocessing.set_start_method - imported by multiprocessing, multiprocessing.spawn
@@ -17,63 +18,19 @@ missing module named pkg_resources.extern.packaging - imported by pkg_resources.
 missing module named pkg_resources.extern.appdirs - imported by pkg_resources.extern, pkg_resources
 missing module named 'pkg_resources.extern.six.moves' - imported by pkg_resources, pkg_resources._vendor.packaging.requirements
 missing module named pkg_resources.extern.six - imported by pkg_resources.extern, pkg_resources
-missing module named sets - imported by nltk.decorators, pytz.tzinfo, MySQLdb, py._builtin
-missing module named UserDict - imported by attr._compat, asn1crypto._ordereddict, pytz.lazy, PIL.PdfParser
-missing module named sqlparse - imported by django.db.backends.base.operations
-missing module named fcntl - imported by atomicwrites, progressbar.progressbar, django.core.files.locks, asyncio.unix_events, py._io.terminalwriter
-missing module named 'psycopg2.extras' - imported by django.db.backends.postgresql.base, django.db.backends.postgresql.operations
-missing module named 'psycopg2.extensions' - imported by django.db.backends.postgresql.base
-missing module named psycopg2 - imported by django.db.backends.postgresql.base, django.db.backends.postgresql.creation, django.db.backends.postgresql.schema
-missing module named cx_Oracle - imported by django.db.backends.oracle.base, django.db.backends.oracle.introspection
-missing module named exceptions - imported by _mysql_exceptions
-missing module named Tkinter - imported by PIL.ImageTk
-missing module named olefile - imported by PIL.FpxImagePlugin, PIL.MicImagePlugin
-missing module named 'PySide.QtCore' - imported by PIL.ImageQt
-missing module named 'PyQt4.QtCore' - imported by PIL.ImageQt
-missing module named 'PyQt5.QtCore' - imported by PIL.ImageQt
-missing module named pathlib2 - imported by PIL.Image
-missing module named testing - imported by cffi.recompiler
-missing module named dummy_thread - imported by numpy.core.arrayprint, cffi.lock, urllib3.packages.ordered_dict
-missing module named thread - imported by numpy.core.arrayprint, cffi.lock, cffi.cparser, urllib3.packages.ordered_dict
-missing module named 'setuptools.extern.six.moves' - imported by setuptools.dist, setuptools.py33compat, setuptools.command.easy_install, setuptools.sandbox, setuptools.command.setopt, setuptools.package_index, setuptools.ssl_support, setuptools.command.egg_info, setuptools.command.py36compat, setuptools.namespaces, setuptools.msvc
-missing module named 'setuptools.extern.packaging.version' - imported by setuptools.msvc
-missing module named setuptools.extern.six - imported by setuptools.extern, setuptools.monkey, setuptools.dist, setuptools.py33compat, setuptools.config, setuptools.command.easy_install, setuptools.sandbox, setuptools.py27compat, setuptools.package_index, setuptools.wheel, setuptools.command.egg_info, setuptools.command.sdist, setuptools.command.bdist_egg, setuptools.unicode_utils, setuptools.glob, setuptools.command.develop
-missing module named setuptools.extern.packaging - imported by setuptools.extern, setuptools.dist, setuptools.command.egg_info
-missing module named _manylinux - imported by setuptools.pep425tags
-missing module named wincertstore - imported by setuptools.ssl_support
-missing module named 'backports.ssl_match_hostname' - imported by setuptools.ssl_support, urllib3.packages.ssl_match_hostname
-missing module named backports - imported by setuptools.ssl_support
-missing module named 'setuptools.extern.six' - imported by setuptools, setuptools.extension
-missing module named cStringIO - imported by nltk.compat, cPickle, cffi.ffiplatform, asn1crypto.core, selenium.webdriver.firefox.firefox_profile, jinja2._compat
-missing module named copy_reg - imported by cStringIO, cPickle, numpy.core
-missing module named cPickle - imported by nltk.data, numpy.core.numeric, pycparser.ply.yacc, numpy.lib.format, numpy.lib.npyio, numpy.ma.core, nltk.corpus.reader.util, jinja2._compat
-missing module named cffi._pycparser - imported by cffi, cffi.cparser
-missing module named django.db.models.DurationField - imported by django.db.models, django.db.backends.oracle.functions, django.db.models.functions.datetime
-missing module named django.db.models.DecimalField - imported by django.db.models, django.db.backends.oracle.functions
-missing module named django.db.models.AutoField - imported by django.db.models, django.forms.models
-missing module named pylibmc - imported by django.core.cache.backends.memcached
-missing module named memcache - imported by django.core.cache.backends.memcached
-missing module named urllib.quote - imported by urllib, asn1crypto._iri, requests.compat, jinja2._compat, py._path.svnwc
-missing module named asyncio.DefaultEventLoopPolicy - imported by asyncio, asyncio.events
-missing module named pretty - imported by jinja2.utils
-missing module named 'jinja2.debugrenderer' - imported by jinja2.debug
-missing module named __pypy__ - imported by jinja2.debug
-missing module named pyinotify - imported by django.utils.autoreload
-missing module named bpython - imported by django.core.management.commands.shell
 missing module named 'multiprocessing.forking' - imported by c:\users\mikhail\appdata\local\programs\python\python36-32\lib\site-packages\PyInstaller\loader\rthooks\pyi_rth_multiprocessing.py
-missing module named pyimod03_importers - imported by c:\users\mikhail\appdata\local\programs\python\python36-32\lib\site-packages\PyInstaller\loader\rthooks\pyi_rth_pkgres.py
 missing module named resource - imported by posix, C:\Users\MIkhail\eclipse-workspace\testSample\src\ConsoleApp.py
 missing module named posix - imported by os, C:\Users\MIkhail\eclipse-workspace\testSample\src\ConsoleApp.py
 missing module named _posixsubprocess - imported by subprocess, multiprocessing.util, C:\Users\MIkhail\eclipse-workspace\testSample\src\ConsoleApp.py
 missing module named org - imported by pickle, C:\Users\MIkhail\eclipse-workspace\testSample\src\ConsoleApp.py
-missing module named readline - imported by cmd, code, pdb, pstats, C:\Users\MIkhail\eclipse-workspace\testSample\src\ConsoleApp.py, django.core.management.commands.shell, rlcompleter, _pytest.capture
+missing module named readline - imported by cmd, code, pdb, pstats, C:\Users\MIkhail\eclipse-workspace\testSample\src\ConsoleApp.py, _pytest.capture
 excluded module named _frozen_importlib - imported by importlib, importlib.abc, C:\Users\MIkhail\eclipse-workspace\testSample\src\ConsoleApp.py
 missing module named _frozen_importlib_external - imported by importlib._bootstrap, importlib, importlib.abc, C:\Users\MIkhail\eclipse-workspace\testSample\src\ConsoleApp.py
 missing module named _winreg - imported by platform, numpy.distutils.cpuinfo, requests.utils, selenium.webdriver.firefox.firefox_binary, C:\Users\MIkhail\eclipse-workspace\testSample\src\ConsoleApp.py, pkg_resources._vendor.appdirs
 missing module named java - imported by platform, C:\Users\MIkhail\eclipse-workspace\testSample\src\ConsoleApp.py
 missing module named 'java.lang' - imported by platform, xml.sax._exceptions, C:\Users\MIkhail\eclipse-workspace\testSample\src\ConsoleApp.py
 missing module named vms_lib - imported by platform, C:\Users\MIkhail\eclipse-workspace\testSample\src\ConsoleApp.py
-missing module named termios - imported by tty, getpass, progressbar.progressbar, django.utils.autoreload, C:\Users\MIkhail\eclipse-workspace\testSample\src\ConsoleApp.py, py._io.terminalwriter
+missing module named termios - imported by tty, getpass, C:\Users\MIkhail\eclipse-workspace\testSample\src\ConsoleApp.py, py._io.terminalwriter
 missing module named grp - imported by shutil, tarfile, pathlib, distutils.archive_util, C:\Users\MIkhail\eclipse-workspace\testSample\src\ConsoleApp.py, py._path.local
 missing module named pwd - imported by posixpath, shutil, tarfile, http.server, webbrowser, netrc, getpass, pathlib, distutils.util, distutils.archive_util, psutil, C:\Users\MIkhail\eclipse-workspace\testSample\src\ConsoleApp.py, py._path.local
 missing module named _dummy_threading - imported by dummy_threading, C:\Users\MIkhail\eclipse-workspace\testSample\src\ConsoleApp.py
@@ -87,10 +44,13 @@ missing module named urllib.urlencode - imported by urllib, requests.compat, _py
 missing module named urllib.unquote_plus - imported by urllib, requests.compat
 missing module named urllib.quote_plus - imported by urllib, requests.compat
 missing module named urllib.unquote - imported by urllib, asn1crypto._iri, requests.compat
+missing module named urllib.quote - imported by urllib, asn1crypto._iri, requests.compat, py._path.svnwc
 missing module named _scproxy - imported by urllib.request
 missing module named urllib2 - imported by numpy.lib._datasource, requests.compat, mysql.connector.fabric.connection, selenium.webdriver.common.utils, selenium.webdriver.remote.remote_connection, selenium.webdriver.common.service
 missing module named urlparse - imported by numpy.lib._datasource, asn1crypto._iri, requests.compat, selenium.webdriver.remote.remote_connection
 missing module named httplib - imported by mysql.connector.fabric.connection, selenium.webdriver.firefox.webdriver, selenium.webdriver.remote.remote_connection, selenium.webdriver.safari.webdriver, selenium.webdriver.blackberry.webdriver, selenium.webdriver.webkitgtk.webdriver
+missing module named cStringIO - imported by nltk.compat, cPickle, cffi.ffiplatform, asn1crypto.core, selenium.webdriver.firefox.firefox_profile
+missing module named copy_reg - imported by cStringIO, cPickle, numpy.core
 missing module named xmlrpclib - imported by mysql.connector.fabric.connection
 missing module named Queue - imported by urllib3.connectionpool, mysql.connector.pooling
 missing module named ConfigParser - imported by numpy.distutils.system_info, numpy.distutils.npy_pkg_config, mysql.connector.optionfiles
@@ -119,12 +79,24 @@ missing module named numpy.inexact - imported by numpy, scipy.special.basic, sci
 missing module named numpy.less - imported by numpy, scipy.special.basic
 missing module named numpy.lib.i0 - imported by numpy.lib, numpy.dual
 missing module named numpy.linalg.inv - imported by numpy.linalg, numpy.matrixlib.defmatrix, numpy.lib.polynomial, scipy.linalg._solvers
+missing module named dummy_thread - imported by numpy.core.arrayprint, cffi.lock, urllib3.packages.ordered_dict
+missing module named thread - imported by numpy.core.arrayprint, cffi.lock, cffi.cparser, urllib3.packages.ordered_dict
+missing module named cPickle - imported by nltk.data, numpy.core.numeric, pycparser.ply.yacc, numpy.lib.format, numpy.lib.npyio, numpy.ma.core, nltk.corpus.reader.util
 missing module named 'numpy_distutils.cpuinfo' - imported by numpy.f2py.diagnose
 missing module named 'numpy_distutils.fcompiler' - imported by numpy.f2py.diagnose
 missing module named 'numpy_distutils.command' - imported by numpy.f2py.diagnose
 missing module named numpy_distutils - imported by numpy.f2py.diagnose
 missing module named numpy.testing.memusage - imported by numpy.testing, numpy.f2py.f2py_testing
 missing module named numpy.testing.jiffies - imported by numpy.testing, numpy.f2py.f2py_testing
+missing module named setuptools.extern.packaging - imported by setuptools.extern, setuptools.dist, setuptools.command.egg_info
+missing module named 'setuptools.extern.six' - imported by setuptools, setuptools.extension
+missing module named _manylinux - imported by setuptools.pep425tags
+missing module named wincertstore - imported by setuptools.ssl_support
+missing module named 'backports.ssl_match_hostname' - imported by setuptools.ssl_support, urllib3.packages.ssl_match_hostname
+missing module named backports - imported by setuptools.ssl_support
+missing module named 'setuptools.extern.packaging.version' - imported by setuptools.msvc
+missing module named 'setuptools.extern.six.moves' - imported by setuptools.dist, setuptools.py33compat, setuptools.command.easy_install, setuptools.sandbox, setuptools.command.setopt, setuptools.package_index, setuptools.ssl_support, setuptools.command.egg_info, setuptools.command.py36compat, setuptools.namespaces, setuptools.msvc
+missing module named setuptools.extern.six - imported by setuptools.extern, setuptools.monkey, setuptools.dist, setuptools.py33compat, setuptools.config, setuptools.command.easy_install, setuptools.sandbox, setuptools.py27compat, setuptools.package_index, setuptools.wheel, setuptools.command.egg_info, setuptools.command.sdist, setuptools.command.bdist_egg, setuptools.unicode_utils, setuptools.glob, setuptools.command.develop
 missing module named __svn_version__ - imported by numpy.f2py.__version__
 missing module named numarray - imported by numpy.distutils.system_info
 missing module named Numeric - imported by numpy.distutils.system_info
@@ -171,12 +143,17 @@ missing module named six.moves.filterfalse - imported by six.moves, more_itertoo
 missing module named six.moves.filter - imported by six.moves, more_itertools.more, more_itertools.recipes
 runtime module named six.moves - imported by 'six.moves.urllib', nltk.tokenize.casual, more_itertools.more, more_itertools.recipes, _pytest.mark.structures, _pytest.python_api, nltk.metrics.scores, nltk.metrics.segmentation, nltk.classify.scikitlearn, nltk.parse.chart, nltk.draw, tkinter, tkinter.filedialog, nltk.parse.featurechart, tkinter.font, nltk.sem.relextract, nltk.parse.earleychart, nltk.parse.nonprojectivedependencyparser, cryptography.x509.general_name, nltk.tag.hmm, nltk.corpus.reader.wordnet, nltk.corpus.reader.framenet, nltk.stem.snowball, tkinter.messagebox, nltk.downloader, nltk, nltk.misc.chomsky
 missing module named six.moves.input - imported by six.moves, nltk.stem.snowball, nltk.downloader
+missing module named UserDict - imported by attr._compat, asn1crypto._ordereddict, PIL.PdfParser
+missing module named fcntl - imported by atomicwrites, py._io.terminalwriter
 missing module named argcomplete - imported by _pytest._argcomplete
 missing module named syslog - imported by py._log.log
 missing module named 'py.builtin' - imported by py._io.terminalwriter
 missing module named compiler - imported by py._code._assertionold
+missing module named sets - imported by nltk.decorators, py._builtin
 missing module named 'py.io' - imported by _pytest.compat, _pytest.python
 missing module named funcsigs - imported by _pytest.compat
+missing module named testing - imported by cffi.recompiler
+missing module named cffi._pycparser - imported by cffi, cffi.cparser
 missing module named numpy.random.randn - imported by numpy.random, scipy
 missing module named numpy.random.rand - imported by numpy.random, scipy
 missing module named 'nose.util' - imported by numpy.testing.nose_tools.noseclasses
@@ -244,6 +221,12 @@ missing module named sklearn - imported by nltk.classify.scikitlearn, nltk.parse
 missing module named 'sklearn.datasets' - imported by nltk.parse.transitionparser
 missing module named ImageFilter - imported by scipy.misc.pilutil
 missing module named Image - imported by scipy.misc.pilutil
+missing module named Tkinter - imported by PIL.ImageTk
+missing module named olefile - imported by PIL.FpxImagePlugin, PIL.MicImagePlugin
+missing module named 'PySide.QtCore' - imported by PIL.ImageQt
+missing module named 'PyQt4.QtCore' - imported by PIL.ImageQt
+missing module named 'PyQt5.QtCore' - imported by PIL.ImageQt
+missing module named pathlib2 - imported by PIL.Image
 missing module named regex - imported by nltk.classify.textcat
 missing module named 'sklearn.naive_bayes' - imported by nltk.classify.scikitlearn
 missing module named 'sklearn.linear_model' - imported by nltk.classify.scikitlearn
