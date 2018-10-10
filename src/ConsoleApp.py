@@ -112,17 +112,6 @@ if len(dataset) != len(files):
 else:
     print(" File found")
 
-<<<<<<< HEAD
-=======
-sys.excepthook = show_exception_and_exit
-
-        
-       
-         
-       # sys.excepthook = show_exception_and_exit     
-
-
->>>>>>> 6041fce2405ba84e1138c0e2a4d891b9895f9f5f
 
 print(" Select default acoount or use you own ")
 print(" Please answer witch(Yes or no)")
@@ -140,7 +129,6 @@ elif choice in no:
    print(" You have chose our accaunt ")
    usr =  config['user']['mail']
    pwd =  config['user']['password']
-<<<<<<< HEAD
 else:
    sys.stdout.write("Please respond with 'yes' or 'no' :") 
    
@@ -165,48 +153,6 @@ if link.is_connected():
 else:
         print("Connection is wrong") 
         
-=======
-else:
-   sys.stdout.write("Please respond with 'yes' or 'no' :") 
-   
-   
-#configMysql = {
- # 'user': 'root',
- # 'password': 'root',
-  #'unix_socket': '/Applications/MAMP/tmp/mysql/mysql.sock',
-  #'database': 'testdb',
-  #'raise_on_warnings': True,
-#}
-conn = mysql.connector.connect(host = config['mysqlDB']['host'],
-                                   user = config['mysqlDB']['user'],
-                                   passwd = config['mysqlDB']['pass'],
-                                   db = config['mysqlDB']['db'])
-
-#link = mysql.connector.connect(conn)
-cursor = conn.cursor()
-
-
-
-
-#conn = mysql.connector.connect(**config)
-#cursor = conn.cursor()
-if conn.is_connected():
-      print("Connected to mysql Database")
-else:
-        print("Connection is wrong") 
-        
-        
-table_name =  config['table']['table']
-sql_command = """
-CREATE TABLE """+table_name+""" ( 
-`id` int(11) NOT NULL DEFAULT '0',
-`plain_html` longtext,
-`extracted` mediumtext
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;"""        
-cursor.execute(sql_command)
-print("Table created")
-        
->>>>>>> 6041fce2405ba84e1138c0e2a4d891b9895f9f5f
 
 try:
    #conn = my.connect(host = h, user= u, passwd=p, db=d)
@@ -231,7 +177,6 @@ try:
             #print(h)
             
             
-<<<<<<< HEAD
         #sql_command = """
         #CREATE TABLE """+table_name+""" ( 
         #`id` int(11) NOT NULL DEFAULT '0',
@@ -252,9 +197,6 @@ try:
        # sys.excepthook = show_exception_and_exit     
         #cursor.execute(sql_command)
         #print("Table created")
-=======
-        
->>>>>>> 6041fce2405ba84e1138c0e2a4d891b9895f9f5f
         print("Scrolind process have start")
         
         
@@ -262,13 +204,8 @@ try:
         _browser_profile = webdriver.FirefoxProfile()
         _browser_profile.set_preference("dom.webnotifications.enabled", False)
         
-<<<<<<< HEAD
         driver = webdriver.Firefox(executable_path='/usr/local/bin/geckodriver',firefox_profile=_browser_profile)
         
-=======
-        #driver = webdriver.Firefox(executable_path='/usr/local/bin/geckodriver',firefox_profile=_browser_profile)
-        driver = webdriver.Firefox(firefox_profile=_browser_profile)
->>>>>>> 6041fce2405ba84e1138c0e2a4d891b9895f9f5f
         driver.maximize_window()
         
         #groupname = "https://www.facebook.com/groups/GamersDHC/members/" 
@@ -336,11 +273,7 @@ try:
                         #print(g)
                     h = p.replace("'", "")
                     #table =  config['table']['testdb.cccc_facebook']       
-<<<<<<< HEAD
                     sql_command = "INSERT  INTO testdb.cccc_facebook (id,extracted) VALUES ("+str(i)+",'"+h+"');"
-=======
-                    sql_command = "INSERT  INTO "+table_name+" (id,extracted) VALUES ("+str(i)+",'"+h+"');"
->>>>>>> 6041fce2405ba84e1138c0e2a4d891b9895f9f5f
                     cursor.execute(sql_command)
                             
                     print("Data inserted  :" + h)
@@ -363,33 +296,14 @@ try:
                 lastHeight = newHeight
                 i += 1
             
-        #page_source = driver.page_source
+        page_source = driver.page_source
         
-<<<<<<< HEAD
         #driver.close()
         driver.execute_script("window.scrollTo(0, 0);")
         entries = soup_gg.select('div._60ri > a')
         g = [x.encode('utf-8') for x in entries]
         facebook_urls = re.findall(r'(https?://[^\s]+)', str(g))
         print(facebook_urls)
-=======
-        driver.close()
-        #driver.execute_script("window.scrollTo(0, 0);")
-        #entries = soup_gg.select('div._60ri > a')
-        #g = [x.encode('utf-8') for x in entries]
-        #facebook_urls = re.findall(r'(https?://[^\s]+)', str(g))
-        #print(facebook_urls)
-        
-        #cursor = link.cursor()
-        #cursor.execute("SELECT extracted FROM testdb.cc_facebook;")
-        #results = cursor.fetchall()
-       # mysqllinks = [x for x in results]
-         
-        #g = auto.replace('(','')
-
-        #p = g.replace(')','')
-       # print(mysqllinks)
->>>>>>> 6041fce2405ba84e1138c0e2a4d891b9895f9f5f
         
         cursor = link.cursor()
         cursor.execute("SELECT extracted FROM testdb.cc_facebook;")
@@ -402,10 +316,7 @@ try:
         print(mysqllinks)
         
         
-<<<<<<< HEAD
         
-=======
->>>>>>> 6041fce2405ba84e1138c0e2a4d891b9895f9f5f
         #sys.excepthook = show_exception_and_exit
         #soup = BeautifulSoup(page_source,"lxml")
         #i = 1
