@@ -32,7 +32,7 @@ Use the package manager [pip](https://pip.pypa.io/en/stable/) to install additio
 2. In dist folder run Data_App.exe
 
 
-##System components
+## System components
 
 To run the whole project you may need  
 
