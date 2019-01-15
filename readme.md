@@ -32,17 +32,6 @@ Use the package manager [pip](https://pip.pypa.io/en/stable/) to install additio
 2. In dist folder run Data_App.exe
 
 
-## System components
-
-To run the whole project you may need  
-
-1. Python 3.6
-2. Eclipse
-3. Pydev for Eclipse
-4. Addition libraries (You may find them in ConsoleApp.py)
-
-
-
 ## Versioning
 
 Version of this project is  0.010
