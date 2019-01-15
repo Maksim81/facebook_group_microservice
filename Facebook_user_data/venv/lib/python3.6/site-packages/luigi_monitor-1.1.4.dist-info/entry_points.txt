@@ -1,0 +1,3 @@
+[console_scripts]
+luigi-monitor = luigi_monitor.luigi_monitor:run
+

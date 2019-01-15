@@ -1,0 +1,15 @@
+Metadata-Version: 1.1
+Name: luigi-swf
+Version: 0.14.1
+Summary: Spotify's Luigi + Amazon's Simple Workflow Service integration
+Home-page: https://github.com/RUNDSP/luigi_swf
+Author: Mike Placentra
+Author-email: someone@michaelplacentra2.net
+License: Apache Software License
+Description: UNKNOWN
+Platform: any
+Classifier: Programming Language :: Python
+Classifier: Natural Language :: English
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Topic :: Software Development :: Libraries :: Python Modules

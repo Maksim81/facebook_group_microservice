@@ -1,0 +1,18 @@
+Metadata-Version: 1.1
+Name: luigi-slack
+Version: 0.1.7
+Summary: Send Slack notifications to report on Luigi pipelines
+Home-page: https://github.com/bonzanini
+Author: Marco Bonzanini
+Author-email: marco.bonzanini@gmail.com
+License: MIT
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Topic :: System :: Monitoring

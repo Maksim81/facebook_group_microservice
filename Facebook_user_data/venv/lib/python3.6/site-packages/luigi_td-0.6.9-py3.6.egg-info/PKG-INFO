@@ -1,0 +1,16 @@
+Metadata-Version: 1.1
+Name: luigi-td
+Version: 0.6.9
+Summary: Luigi integration for Treasure Data
+Home-page: https://github.com/treasure-data/luigi-td
+Author: Treasure Data, Inc.
+Author-email: support@treasure-data.com
+License: Apache License 2.0
+Description: UNKNOWN
+Platform: Posix; MacOS X; Windows
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Software Development

@@ -1,0 +1,155 @@
+#!/Users/mikhailnovatskiy/PycharmProjects/Facebook_User_Data/venv/bin/python
+'''
+    Copyright (c) 2015, 2016, 2017, 2018 Timothy Savannah All Rights Reserved
+
+    Licensed under terms of the Lesser GNU General Purpose License Version 2.1
+
+    This is part of AdvancedHTMLParser ( https://github.com/kata198/AdvancedHTMLParser )
+
+    See LICENSE for more information
+'''
+
+import os
+import sys
+
+from AdvancedHTMLParser import AdvancedHTMLFormatter, AdvancedHTMLMiniFormatter, AdvancedHTMLSlimTagFormatter, AdvancedHTMLSlimTagMiniFormatter
+
+from AdvancedHTMLParser import __version__ as VERSION
+
+def printVersion():
+    sys.stdout.write ( 'AdvancedHTMLParser and formatHTML by Timothy Savannah (c) 2015-2018 Version %s\n\n' %(VERSION, ))
+
+def printUsage():
+    sys.stderr.write('''Usage: %s (Optional Arguments) (optional: /path/to/in.html) (optional: [/path/to/output.html])
+  Formats HTML on input and writes to output.
+
+ Optional Arguments:
+ -------------------
+
+    -e [encoding]        - Specify an encoding to use. Default is utf-8
+
+    -m  or --mini        - Output "mini" HTML (only retain functional whitespace,
+                            strip the rest and no indentation)
+
+    -p  or --pretty      - Output "pretty" HTML [This is the defualt mode]
+
+    -s or --slim         - Use the "slim" formatter to strip trailing-space in
+                            start tags <span id="x"> vs <span id="x" >
+
+
+    --indent='    '      - Use the provided string [default 4-spaces] to represent each
+                            level of nesting. Use --indent="\t" for 1 tab insead, for example.
+                           Affects pretty printing mode only
+
+    --version            - Print version info on AdvancedHTMLParser suite and exit
+
+    --help               - Print this message and exit
+
+
+ If output filename is not specified or is empty string, output will be to stdout.
+ If input filename is not specified or is empty string, input will be from stdin
+ If -e is provided, will use that as the encoding. Defaults to utf-8
+
+''' %(os.path.basename(sys.argv[0])))
+    printVersion()
+
+if __name__ == '__main__':
+
+
+    indent = '  '
+    inFilename  = None
+    outFilename = None
+
+    isMini = False
+    isSlim = False
+
+    args = sys.argv[1:]
+    tmpArgs = args[:]
+    encoding = 'utf-8'
+
+    for i in range(len(args)):
+        arg = args[i]
+        if arg.startswith('-e'):
+            if len(arg) > 2:
+                encoding = arg[2:]
+                args = args[:i] + args[i+1:]
+                break
+            else:
+                if i == len(args) - 1:
+                    sys.stderr.write('-e takes an argument, encoding.\n')
+                    sys.exit(1)
+                encoding = args[i+1]
+                args = args[:i] + args[i+2:]
+                break
+
+
+    for arg in args[:]:
+        if arg.startswith('--indent='):
+            indent = arg[len('--indent='):].replace('\\t', '\t').replace('\\r', '\r').replace('\\n', '\n')
+            if indent.isdigit():
+                indent = ' ' * indent
+            elif len(indent.replace(' ', '').replace('\t', '').replace('\r', '').replace('\n', '')) > 0:
+                sys.stderr.write('Supported values for indent are: # of spaces, or a string of tabs, spaces, newlines which represent one level of indentation.\n')
+                sys.exit(1)
+            args.remove(arg)
+        elif arg in ('-m', '--mini'):
+            isMini = True
+        elif arg in ('-p', '--pretty'):
+            isMini = False
+        elif arg in ('-s', '--slim'):
+            isSlim = True
+        elif arg == '--help':
+            printUsage()
+            sys.exit(0)
+        elif arg == '--version':
+            printVersion()
+            sys.exit(0)
+        elif inFilename is None:
+            inFilename = arg
+        elif outFilename is None:
+            outFilename = arg
+        else:
+            sys.stderr.write('Too many arguments\n\n')
+            printUsage()
+            sys.exit(1)
+
+    if inFilename:
+        if not os.path.isfile(inFilename):
+            sys.stderr.write('Input file "%s" does not exist.\n' %(inFilename,))
+            sys.exit(1)
+    else:
+        try:
+            inData = sys.stdin.read()
+        except KeyboardInterrupt:
+            # Intercept control+c and exit cleanly
+            sys.exit(1)
+
+    if outFilename:
+        try:
+            outFile = open(outFilename, 'w')
+        except IOError:
+            sys.stderr.write('Cannot open output file %s\n' %(outFilename,))
+        
+    
+    if not isMini:
+        if not isSlim:
+            formatter = AdvancedHTMLFormatter(indent=indent, encoding=encoding)
+        else:
+            formatter = AdvancedHTMLSlimTagFormatter(indent=indent, encoding=encoding)
+    else:
+        if not isSlim:
+            formatter = AdvancedHTMLMiniFormatter(encoding=encoding)
+        else:
+            formatter = AdvancedHTMLSlimTagMiniFormatter(encoding=encoding)
+
+    if inFilename:
+        formatter.parseFile(inFilename)
+    else:
+        formatter.parseStr(inData)
+
+    if outFilename:
+        outFile.write(formatter.getHTML())
+        outFile.write('\n')
+    else:
+        sys.stdout.write(formatter.getHTML())
+        sys.stdout.write('\n')
