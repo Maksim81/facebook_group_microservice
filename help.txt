@@ -1,1 +1,5 @@
-To busy right now 
+Right now project is still in development. 
+There may be some problems witch base account that is selected right now(it may ask for you phone validation)
+If you encounter some problems with this project please send us you review of errors at sample@mail.com. 
+We will be very grateful if you could help us improve this project.
+

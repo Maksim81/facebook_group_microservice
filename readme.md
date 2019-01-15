@@ -1,44 +1,63 @@
-#This is short documenation about project.
+#Facebook group data Microservice.
 
-#Description: Microservice allows to store facebook profiles in the MySQL database
+Microservice allows to store facebook profiles in the MySQL database
 
-Getting started: 
+##Getting started 
 
-1. Download the file from out server 
-2. Put neccessarry configurations (located on config.ini)
-2.1 Set your database information and scroll delay
-3. Enter the correct url for group users 
-4. Put the correct table name where to store you users 
-5. After you fish oll then the program will start(Wait patiently for it to finish and the you have it, all data is in you mysql database) 
-6. The main programm where you can start you file is Console App.py. And the directory for exe file if dist 
-Have Fun !!!!!! 
-This is the version 0.003 
-There will be more updates soon 
-#If there is an error the program doesn't crash right away
+These instructions will help you get a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-Sample config
-Here you can change the data to you own 
+##Preferences 
 
-database = "MyDB"; #Name of your db
-="" # "My group "Name 
+###Tools 
 
-host = localhost #name of you host
-user = root #You user name
-pass =  #and the password for you Mysql database
-db = testdb # and the name of you db
+1. MAMP server  [Click](https://www.mamp.info/en/downloads/)
+2. Python 3.6   [Click](https://www.python.org/downloads/)
+3. Selenium web driver   [Click](https://selenium-python.readthedocs.io/installation.html)
+4. PyChamp CE  [Click ](https://www.mamp.info/en/downloads/)
+
+### Python Libraries 
+
+Use the package manager [pip](https://pip.pypa.io/en/stable/) to install addition libraries that are listed below 
+
+1. time 
+2. mysql.connector
+3. configparser
+4. selenium
+5. common.keys
+6. BeautifulSoup
+
+## Installation 
+
+1. Clone the project from github by clicking [clone](https://pip.pypa.io/en/stable/) or [download](https://pip.pypa.io/en/stable/) button 
+2. In dist folder run Data_App.exe 
+
+ 
+##System components 
+
+To run the whole project you may need  
+
+1. Python 3.6 
+2. Eclipse 
+3. Pydev for Eclipse 
+4. Addition libraries (You may find them in ConsoleApp.py)
 
 
 
-Then set you scroll delay [pause] 
-value = 3 # Set scroll delay 
-# This value means how long will page wait before going down, you will have 3 seconds to wait. 
-# Right now the min value for this is 3, if you want to go lover you are doing it at you own risk
+## Versioning
 
-db = testdb 
-#Dont forget to chose you db name if you dont have one you can simply create it
+Version of this project is  0.010
 
-For now this is the only configuration that you have to do
-If you have any problems read help file
+## Authors
+
+*# Mikhail Novatskiy #* *# Maksim Kolodijev #*
+
+
+
+
+
+
+
+
 
 
 
