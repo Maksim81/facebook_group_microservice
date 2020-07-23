@@ -821,7 +821,7 @@ def get_parser():
                                  "associated with the credential in the form "
                                  "of \"key=value\"")
     parsers[action].add_argument("-k", "--key", default="alias/credstash",
-                                 help="the KMS key-id of the master key "
+                                 help="the KMS key-id of the main key "
                                  "to use. See the README for more "
                                  "information. Defaults to alias/credstash")
     parsers[action].add_argument("-c", "--comment", type=str,
@@ -859,7 +859,7 @@ def get_parser():
                                       "associated with the credential in the form "
                                       "of \"key=value\"")
     parsers[action].add_argument("-k", "--key", default="alias/credstash",
-                                 help="the KMS key-id of the master key "
+                                 help="the KMS key-id of the main key "
                                       "to use. See the README for more "
                                       "information. Defaults to alias/credstash")
     parsers[action].add_argument("-v", "--version", default="",
